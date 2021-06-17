@@ -5,10 +5,18 @@
  */
 package sort.methods;
 
+import sort.strategy.ISortStrategy;
+
+import java.util.Arrays;
+
 /**
  *
  * @author LeopardProMK
  */
-public class Quicksort {
-    /* http://www.algorytm.org/algorytmy-sortowania/sortowanie-szybkie-quicksort/quick-j.html */
+public class Quicksort implements ISortStrategy {
+
+    @Override
+    public void sort(double[] doubleTab) {
+        Arrays.stream(doubleTab).sorted();
+    }
 }
