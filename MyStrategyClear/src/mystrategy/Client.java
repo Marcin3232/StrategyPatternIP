@@ -6,6 +6,13 @@
 package mystrategy;
 
 import data.DataGenerator;
+import sort.methods.Bubblesort;
+import sort.methods.Insertionsort;
+import sort.methods.Quicksort;
+import sort.methods.Selectionsort;
+import sort.strategy.SortContext;
+
+import java.util.Arrays;
 
 /**
  *
@@ -18,14 +25,14 @@ public class Client {
      */
     public static void main(String[] args) {
 
-        /* Algorytmy sortowania */
-        // http://www.algorytm.org/algorytmy-sortowania/
-        
         double[] dataNonSort = DataGenerator.generate(100000);
-        
-       /* Wzorzec Stratega */
-        //...
-       
-        System.out.println("Time: ??");
+
+        SortContext sortContext = new SortContext(new Selectionsort()); //selecting the sort method
+        double time = sortContext.sortedDoubleTab(dataNonSort);
+
+        //testing sorted array
+        Arrays.stream(dataNonSort).forEach( x -> System.out.println(x));
+
+        System.out.println("Time: " + time);
     }
 }

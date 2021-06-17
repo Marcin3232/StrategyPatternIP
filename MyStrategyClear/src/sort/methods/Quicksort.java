@@ -17,6 +17,6 @@ public class Quicksort implements ISortStrategy {
 
     @Override
     public void sort(double[] doubleTab) {
-        Arrays.stream(doubleTab).sorted();
+        Arrays.sort(doubleTab);
     }
 }
