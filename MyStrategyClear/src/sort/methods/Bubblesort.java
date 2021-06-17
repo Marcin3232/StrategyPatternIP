@@ -5,10 +5,26 @@
  */
 package sort.methods;
 
+import sort.strategy.ISortStrategy;
+
+import java.util.stream.IntStream;
+
 /**
- *
  * @author LeopardProMK
  */
-public class Bubblesort {
-    /* http://www.algorytm.org/algorytmy-sortowania/sortowanie-babelkowe-bubblesort.html */
+public class Bubblesort implements ISortStrategy {
+
+    @Override
+    public void sort(double[] doubleTab) {
+        int n = doubleTab.length;
+        IntStream.range(0, doubleTab.length - 1)
+                .flatMap(i -> IntStream.range(1, n - i))
+                .forEach(j -> {
+                    if (doubleTab[j - 1] > doubleTab[j]) {
+                        double temp = doubleTab[j];
+                        doubleTab[j] = doubleTab[j - 1];
+                        doubleTab[j - 1] = temp;
+                    }
+                });
+    }
 }
